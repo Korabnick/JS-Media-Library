@@ -33,7 +33,7 @@ docker run -d --name medialibrary -e POSTGRES_USER=mediaadmin -e POSTGRES_PASSWO
 npx sequelize-cli db:create
 ```
 
-Добавление админа с именем и паролем "admin" в базу данных:
+Добавление админа с именем и паролем "admin" и пользователя с именем и паролем "moderator" в базу данных:
 ```bash
 node .\createAdmin.js
 ```
