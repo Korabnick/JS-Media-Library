@@ -7,15 +7,7 @@ npm init -y
 ```
 
 ```bash
-npm install express pg sequelize dotenv bcryptjs jsonwebtoken body-parser ejs middleware express-session sequelize-cli
-```
-
-```bash
-npx sequelize-cli init
-```
-
-```bash
-npx sequelize-cli migration:generate --name add-userId-to-mediaItems
+npm install express pg sequelize dotenv bcryptjs jsonwebtoken body-parser ejs middleware express-session
 ```
 
 ```bash
