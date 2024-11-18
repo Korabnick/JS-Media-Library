@@ -14,21 +14,12 @@ npm install express pg sequelize dotenv bcryptjs jsonwebtoken body-parser ejs mi
 npx sequelize-cli init
 ```
 
-```bash
-docker run -d \
-    --name trd2 \
-    -e POSTGRES_USER=trdadmin \
-    -e POSTGRES_PASSWORD=test \
-    -e PGDATA=/postgres_data_inside_container \
-    -v ~/my_flask_project/postgres_data:/postgres_data_inside_container \
-    -p 38760:5432 \
-    postgres:15.1
-```
-
+Создание контейнера для базы данных:
 ```bash
 docker run -d --name medialibrary -e POSTGRES_USER=mediaadmin -e POSTGRES_PASSWORD=test -e PGDATA=/postgres_data_inside_container -v ~/my_js_project/postgres_data:/postgres_data_inside_container -p 38000:5432 postgres:15.1
 ```
 
+Создание базы данных:
 ```bash
 npx sequelize-cli db:create
 ```
