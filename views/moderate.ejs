@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мод-панель</title>
+</head>
+<body>
+    <h1>Мод-панель</h1>
+    <h2>Пользователи</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Имя пользователя</th>
+            <th>Действия</th>
+        </tr>
+        <% users.forEach(user => { %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.username %></td>
+                <td>
+                    <form action="/moderate/delete-user/<%= user.id %>" method="POST" style="display:inline;">
+                        <button type="submit">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+
+    <h2>Медиа</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Тип</th>
+            <th>Статус</th>
+            <th>Пользователь</th>
+            <th>Действия</th>
+        </tr>
+        <% media.forEach(item => { %>
+            <tr>
+                <td><%= item.id %></td>
+                <td><%= item.title %></td>
+                <td><%= item.type %></td>
+                <td><%= item.status %></td>
+                <td><%= item.userId %></td>
+                <td>
+                    <form action="/moderate/delete-media/<%= item.id %>" method="POST" style="display:inline;">
+                        <button type="submit">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

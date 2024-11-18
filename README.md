@@ -7,7 +7,7 @@ npm init -y
 ```
 
 ```bash
-npm install express pg sequelize dotenv bcryptjs jsonwebtoken body-parser ejs middleware express-session sequelize-cli
+npm install express pg sequelize dotenv bcryptjs jsonwebtoken body-parser ejs middleware express-session sequelize-cli bcrypt
 ```
 
 ```bash
@@ -34,9 +34,23 @@ docker run -d --name medialibrary -e POSTGRES_USER=mediaadmin -e POSTGRES_PASSWO
 ```
 
 ```bash
-1. docker exec -it medialibrary psql -U mediaadmin
-
-2. CREATE DATABASE medialibrary;
+npx sequelize-cli db:create
 ```
 
-docker run -d --name medialibrary -e POSTGRES_USER=mediaadmin -e POSTGRES_PASSWORD=test -e PGDATA=/postgres_data_inside_container -v C:/Users/qq/Documents/my_flask_project/postgres_data:/postgres_data_inside_container -p 38000:5432 postgres:15.1
+Добавление админа с именем и паролем "admin" в базу данных:
+```bash
+node .\createAdmin.js
+```
+
+Запуск сервера:
+```bash
+node .\server.js
+```
+
+Для сброса данных в базе данных:
+```bash
+npx sequelize-cli db:drop
+```
+```bash
+npx sequelize-cli db:create
+```

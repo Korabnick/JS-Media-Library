@@ -3,25 +3,22 @@ const MediaItem = require('../models/mediaItem');
 exports.createMedia = async (req, res) => {
     try {
         const { title, type, status, progress } = req.body;
-        const userId = req.userId; // Получаем userId из токена
+        const userId = req.userId;
 
-        // Проверяем, что userId существует
         if (!userId) {
             return res.status(400).json({ error: 'User ID is required' });
         }
 
-        // Проверяем, что все необходимые поля переданы
         if (!title || !type || !status || progress === undefined) {
             return res.status(400).json({ error: 'Все поля обязательны для заполнения' });
         }
 
-        // Создаем новый элемент медиа с обязательным userId
         const media = await MediaItem.create({
             title,
             type,
             status,
             progress,
-            userId // Передаем userId
+            userId
         });
 
         res.status(201).json(media);

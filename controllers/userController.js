@@ -24,20 +24,18 @@ exports.login = async (req, res) => {
         const user = await User.findOne({ where: { username } });
 
         if (!user || !await bcrypt.compare(password, user.password)) {
-            // Завершаем обработку сразу после отправки ответа
+            console.log(password)
+            console.log(user.password)
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
-        const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        // Сохраняем токен в сессии
         req.session.token = token;
         console.log('Token saved to session:', req.session.token);
 
-        // Перенаправляем на главную страницу
         res.redirect('/');
     } catch (error) {
-        // Отправляем ошибку только один раз
         if (!res.headersSent) {
             res.status(500).json({ error: error.message });
         }
