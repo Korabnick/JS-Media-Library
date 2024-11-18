@@ -15,10 +15,6 @@ npx sequelize-cli init
 ```
 
 ```bash
-npx sequelize-cli migration:generate --name add-userId-to-mediaItems
-```
-
-```bash
 docker run -d \
     --name trd2 \
     -e POSTGRES_USER=trdadmin \
