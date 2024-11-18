@@ -1,0 +1,27 @@
+{
+    "development": {
+      "username": "mediaadmin",
+      "password": "test",
+      "database": "medialibrary",
+      "host": "127.0.0.1",
+      "port": "38000",
+      "dialect": "postgres"
+    },
+    "test": {
+      "username": "mediaadmin",
+      "password": "test",
+      "database": "medialibrary",
+      "host": "127.0.0.1",
+      "port": "38000",
+      "dialect": "postgres"
+    },
+    "production": {
+      "username": "mediaadmin",
+      "password": "test",
+      "database": "medialibrary",
+      "host": "127.0.0.1",
+      "port": "38000",
+      "dialect": "postgres"
+    }
+  }
+  
