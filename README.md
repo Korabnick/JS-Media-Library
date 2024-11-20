@@ -10,6 +10,11 @@ npm init -y
 npm install express pg sequelize dotenv bcryptjs jsonwebtoken body-parser ejs middleware express-session sequelize-cli bcrypt
 ```
 
+Для тестов:
+```bash
+npm install --save-dev mocha chai@4 chai-http@4 sinon
+```
+
 ```bash
 npx sequelize-cli init
 ```

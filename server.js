@@ -41,11 +41,12 @@ app.get('/login', (req, res) => res.render('login'));
 app.use('/admin', authMiddleware.verifyToken, roleMiddleware.checkRole(['admin']), adminRoutes);
 app.use('/moderate', authMiddleware.verifyToken, roleMiddleware.checkRole(['moderator', 'admin']), moderateRoutes);
 
+module.exports = app;
 
-// Запуск сервера
-sequelize
-    .sync()
-    .then(() => {
-        app.listen(3000, () => console.log('Сервер запущен на http://localhost:3000'));
-    })
-    .catch(err => console.log('Ошибка подключения к БД:', err));
+// // Запуск сервера
+// sequelize
+//     .sync()
+//     .then(() => {
+//         app.listen(3000, () => console.log('Сервер запущен на http://localhost:3000'));
+//     })
+//     .catch(err => console.log('Ошибка подключения к БД:', err));

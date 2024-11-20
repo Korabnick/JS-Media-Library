@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const User = require('./user'); // Импорт модели пользователя
+const User = require('./user');
 
 const MediaItem = sequelize.define('MediaItem', {
     title: { type: DataTypes.STRING, allowNull: false },
@@ -10,7 +10,6 @@ const MediaItem = sequelize.define('MediaItem', {
     userId: { type: DataTypes.INTEGER, allowNull: false }
 });
 
-// Связываем MediaItem с User
 MediaItem.belongsTo(User, { foreignKey: 'userId', onDelete: 'CASCADE' });
 User.hasMany(MediaItem, { foreignKey: 'userId' });
 
